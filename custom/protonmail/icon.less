@@ -1,0 +1,53 @@
+//
+// Component: Icon
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@icon-button-width:                             30px;
+@icon-button-background:                        rgba(0,0,0,0);
+@icon-button-color:                             @global-color;
+
+@icon-button-hover-background:                  darken(@button-background, 5%);
+@icon-button-hover-color:                       @global-color;
+
+@icon-button-active-background:                 darken(@button-background, 3%);
+@icon-button-active-color:                      @icon-button-hover-color;
+
+// New variables
+
+@icon-button-border-width:						@global-border-width;
+@icon-button-border: 							@global-border;
+
+@icon-button-hover-border: 						@global-color;
+
+@icon-button-active-border: 					@global-color;
+
+
+// Modifier: `uk-icon-button`
+// ========================================================================
+
+.hook-icon-button() {
+	border: @icon-button-border-width solid @icon-button-border;
+}
+
+// Hover
+.hook-icon-button-hover() {
+	border-color: @icon-button-hover-border;
+	-webkit-transition: all .25s;
+			transition: all .25s;
+}
+
+// Active
+.hook-icon-button-active() {
+	border-color: @icon-button-active-border;
+}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-icon-misc() {}

@@ -1,0 +1,332 @@
+/* Custom variables
+ ========================================================================== */
+
+
+//
+// Base
+//
+
+@bh-headline-bottom-border-width:                   @global-border-width;
+@bh-headline-bottom-border:                         @global-border;
+@bh-headline-left-border-width:                     3px;
+@bh-headline-left-border:                           @global-primary-background;
+
+//
+// Breakpoints
+//
+
+@breakpoint-xxlarge:                                1365px;
+@breakpoint-xlarge-max:                             (@breakpoint-xxlarge - 1);
+
+
+
+/* Custom components
+ ========================================================================== */
+
+ body {}
+
+ // Wrapper
+
+ .pm-appbar {
+    width: 40px;
+    height: 100vh;
+    background: #41414c;
+    position: absolute;
+    left: 0;
+    box-shadow: inset -10px 0 10px 0px rgba(0,0,0,0.1);
+ }
+
+ .pm-app-icon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: #41414c;
+    box-shadow: inset -10px 0 10px 0px rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+    color: fade(@global-contrast-color, 30%);
+    text-align: center;
+    line-height: 40px;
+
+    &:hover {
+        color: fade(@global-contrast-color, 70%);
+        box-shadow: inset -10px 0 10px 0px rgba(0,0,0,0.01);
+    }
+ }
+
+ .pm-app-icon-active.pm-app-icon {
+    background: @global-dark-background;
+    box-shadow: inset 0px 1px 0px 0px rgba(255,255,255,0.05);
+    color: @global-contrast-color;
+ }
+
+ .pm-app {
+    width: ~"calc(100% - 40px)";
+    background: @global-background;
+    height: 100vh;
+    display: inline-block;
+    // margin-left: -4px;
+    position: absolute;
+    left: 40px;
+ }
+
+ .pm-sidebar {
+    min-width: 220px !important;    
+    height: 100vh;
+    display: inline-block;
+    background: #464652;
+    padding: 20px;
+ }
+
+ .pm-topbar {
+    height: 40px;
+    // width: ~"calc(100% - 160px)";
+    display: inline-block;
+    background: #777b8a;
+    // margin-left: -4px;
+    padding: 0;
+ }
+
+ .pm-toolbar {
+    padding: 10px 15px;
+    border-bottom: 1px solid @global-border;
+}
+
+.pm-con-view { padding: 0; }
+
+ .pm-content {
+    // height: ~"calc(100% - 40px)";
+    // width: ~"calc(100% - 160px)";
+    display: inline-block;
+ }
+
+ .pm-app > .uk-grid { margin-left: 0px !important; }
+
+ .pm-con-list {
+    padding: 0;
+    font-size: 12px;
+    line-height: 18px;
+    height: ~"calc(100vh - 100px)";
+    overflow-y: scroll;
+}
+
+// Conversation List Item
+
+.pm-con-list-item {
+    background: #edeff2;
+    padding: 12px 15px;
+    border-bottom: 1px solid @global-border;
+}
+
+.pm-con-list-item-unread { background: @global-background; }
+
+.pm-con-list-item:hover {
+    z-index: 999;
+    box-shadow: inset 0 0 10px 10px rgba(0,0,0,0.03);
+}
+
+.pm-con-list-item-checkbox {
+    width: 20px;
+    display: inline-block;
+}
+
+.pm-con-list-item-subject {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: ~"calc(100% - 160px)";
+    display: inline-block;
+    font-size: 14px;
+}
+
+.pm-con-list-item-icons,
+.pm-con-list-item-date { display: inline-block; }
+
+.pm-con-list-item-icons { width: 30px; }
+.pm-con-list-item-date {
+    text-align: right;
+    width: 90px;
+}
+
+.pm-con-list-item-bottom { position: relative; }
+
+.pm-con-list-item-sender {
+    font-size: 12px;
+    margin-left: 25px;
+    font-weight: bold;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: inline-block;
+    width: ~"calc(100% - 25px)";
+}
+
+.pm-label-list {
+    padding-right: 5px;
+    display: inline-block;
+    background: #edeff2;
+    position: absolute;
+    right: 0;
+
+    &:before {
+        content: '';
+        position: absolute;
+        width: 30px;
+        height: 18px;
+        left: -30px;
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,1+100;Neutral+Density */
+        background: -moz-linear-gradient(left, rgba(0,0,0,0) 0%, #edeff2 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(left, rgba(0,0,0,0) 0%,#edeff2 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to right, rgba(0,0,0,0) 0%,#edeff2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    }
+
+}
+
+.pm-label {
+    font-size: 8px;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 12px;
+    color: @global-contrast-color;
+    height: 14px;
+    border-radius: 9px;
+    padding: 0px 6px;
+    display: inline-block; 
+    border: 2px solid @global-border;
+    float: right;
+}
+
+.pm-label-collapsed.pm-label {
+    max-width: 2px;
+    position: relative;
+    margin-right: -5px;
+
+    & span { display: none; }
+
+    &:before {
+        content: '';
+        position: absolute;
+        left: -2px;
+        top: -2px;
+        width: 8px;
+        height: 18px;
+        overflow: auto;
+        background: #edeff2;
+        border-right-bottom-radius: 14px;
+        border-right-top-radius: 14px;
+    }
+
+    &:hover {
+        max-width: 100%;
+        margin-left: 7px;
+        
+        & span { display: inline; }
+        &:before { display: none; }
+
+    }
+}
+
+// Label ID's
+#label-protonmail { border-color: #9199cb; color: #9199cb; }
+#label-work { border-color: #4894e9; color: #4894e9; }
+#label-important { border-color: #ed1515; color: #ed1515; }
+#label-private { border-color: #64cc2c; color: #64cc2c; }
+#label-family { border-color: #b72ccc; color: #b72ccc; }
+
+.pm-con-list-item-active {
+    background: @global-light-background;
+
+    .pm-label-list {
+        background: @global-light-background;
+
+        &:before {
+            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,1+100;Neutral+Density */
+            background: -moz-linear-gradient(left, rgba(0,0,0,0) 0%, @global-light-background 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(left, rgba(0,0,0,0) 0%,@global-light-background 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to right, rgba(0,0,0,0) 0%,@global-light-background 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        }
+
+    }
+
+    .pm-label-collapsed.pm-label:before { background: @global-light-background; }
+
+}
+
+
+.pm-badge-nav { margin: 1px 0; }
+.pm-checkbox-nav { margin: 2px 0; }
+
+
+
+/* remove standard-styles */
+.pm-custom-checkbox input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border:none;
+  border-radius: 0;
+  font-size: 1em;
+  width: 100%
+} 
+
+/* graceful degradation for ie8 */
+.pm-custom-checkbox input[type='checkbox'],
+.pm-custom-checkbox input[type='radio'] {
+  width:auto;
+  float:left;
+  margin-right: .75em;
+  background:transparent;
+  border:none;
+}
+
+.pm-custom-checkbox input[type='checkbox']:checked,
+.pm-custom-checkbox input[type='checkbox']:not(:checked),
+.pm-custom-checkbox input[type='radio']:checked,
+.pm-custom-checkbox input[type='radio']:not(:checked) {
+  background: transparent;
+  position: relative;
+  display: none;
+  margin:0;
+  padding:0;
+}
+
+.pm-custom-checkbox input[type='checkbox'] + label,
+.pm-custom-checkbox input[type='radio'] + label {
+  cursor: pointer;
+}
+
+
+.pm-custom-checkbox input[type='checkbox']:checked + label::before,
+.pm-custom-checkbox input[type='checkbox']:not(:checked) + label::before,
+.pm-custom-checkbox input[type='radio']:checked + label::before,
+.pm-custom-checkbox input[type='radio']:not(:checked) + label::before {
+    content:' ';
+    display:inline-block;
+    width: 12px;
+    height:12px;
+    position: relative;
+    border: 1px solid darken(@global-dark-background, 10%);
+    background: transparent;
+    box-shadow: inset 0 1px 1px 0 rgba(0,0,0,.1);
+}
+
+.pm-custom-checkbox input[type=radio]:checked + label::before,
+.pm-custom-checkbox input[type=radio]:not(:checked) + label::before {
+  border-radius: 30px;
+}
+
+.pm-custom-checkbox input[type='checkbox']:hover  + label::before,
+.pm-custom-checkbox input[type='radio']:hover  + label::before {
+  background: @global-background;
+  box-shadow: inset 0 0 0 4px @global-dark-background;
+}
+
+.pm-custom-checkbox input[type='checkbox']:checked  + label::before,
+.pm-custom-checkbox input[type='radio']:checked  + label::before {
+  background: @global-primary-background;
+  box-shadow: inset 0 0 0 4px @global-dark-background;
+}
+
+
+
+
+
