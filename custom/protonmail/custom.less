@@ -15,7 +15,7 @@
 @app-background:                        @global-background;
 @app-left-margin:                       @appbar-width;
 
-@sidebar-min-width:                     220px;
+@sidebar-min-width:                     200px;
 @sidebar-height:                        100vh;
 @sidebar-background:                    @global-dark-background;
 @sidebar-padding:                       @global-margin;
@@ -28,7 +28,9 @@
 
 @con-list-height:                       ~"calc(100vh - (@{topbar-height} + (2 * @{global-margin-mini}) + @{button-height}))";
 @con-list-font-size:                    12px;
-@con-list-line-height:                  18px;
+@con-list-line-height:                  16px;
+
+@con-view-background:                   #f8f8f8;
 
 //
 // Components
@@ -44,7 +46,7 @@
 @app-icon-active-background:            @global-dark-background;
 
 @con-list-item-background:              #edeff2;
-@con-list-item-padding:                 @global-margin-mini @global-margin-small;
+@con-list-item-padding:                 (@global-margin-mini + 2px) @global-margin-small @global-margin-mini @global-margin-small;
 @con-list-item-border:                  @global-border-width solid @global-border;
 @con-list-item-unread-background:       @global-background;
 
@@ -57,16 +59,26 @@
 @con-list-item-subject-width:           ~"calc(100% - (@{con-list-item-checkbox-width} + @{con-list-item-icons-width} + @{con-list-item-date-width} + 20px))";
 @con-list-item-subject-font-size:       14px;
 
-@con-list-item-sender-font-size:        14px;
+@con-list-item-sender-font-size:        12px;
 @con-list-item-sender-font-weight:      bold;
 @con-list-item-sender-margin-left:      25px;
 @con-list-item-sender-width:            ~"calc(100% - @{con-list-item-sender-margin-left})";
+
+@con-view-wrapper-padding:              @global-margin-small;
+
+@con-view-message-background:           @con-list-item-background;
+@con-view-message-border-radius:        @global-border-radius;
+@con-view-message-padding:              @global-margin-mini @global-margin-small;
 
 
 /* Custom components
  ========================================================================== */
 
 body {}
+
+// QUICK TESTS - NEED TO IMPROVED LATER
+
+.uk-grid-divider:not(:empty) { margin-right: 0px; }
 
 //
 // Layout
@@ -138,7 +150,10 @@ body {}
 
 // App - Content - Conversation View
 
-.pm-con-view { padding: 0; }
+.pm-con-view {
+    background: @con-view-background;
+    padding: 0;
+}
 
 
 //
@@ -220,8 +235,27 @@ body {}
     display: inline-block;
 }
 
+.pm-con-view-subject {
+    font-size: 25px;
+    padding: 15px 15px;
+    border-bottom: 1px solid @global-border;
+    margin: 0;
+}
+
+.pm-con-view-wrapper {
+    padding: @con-view-wrapper-padding;
+    position: relative;
+}
+
+.pm-con-view-message {
+    background: @con-view-message-background;
+    padding: @con-view-message-padding;
+    border-radius: @con-view-message-border-radius;
+    display: inline-block;
+    width: 100%;
+}
+
 .pm-label-list {
-    padding-right: 5px;
     display: inline-block;
     background: #edeff2;
     position: absolute;
@@ -232,7 +266,7 @@ body {}
         content: '';
         position: absolute;
         width: 30px;
-        height: 18px;
+        height: 14px;
         left: -30px;
         /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,1+100;Neutral+Density */
         background: -moz-linear-gradient(left, rgba(0,0,0,0) 0%, #edeff2 100%); /* FF3.6-15 */
@@ -258,7 +292,7 @@ body {}
     font-weight: bold;
     line-height: 12px;
     color: @global-contrast-color;
-    height: 14px;
+    height: 12px;
     border-radius: 9px;
     padding: 0px 8px;
     display: inline-block;
