@@ -26,7 +26,7 @@
 @toolbar-padding:                       @global-margin-mini @global-margin-small;
 @toolbar-border:                        1px solid @global-border;
 
-@con-list-height:                       ~"calc(100vh - (@topbar-height + (2 * @global-margin-mini) + @button-height))"
+@con-list-height:                       ~"calc(100vh - (@topbar-height + (2 * @global-margin-mini) + @button-height))";
 @con-list-font-size:                    12px;
 @con-list-line-height:                  18px;
 
@@ -36,7 +36,7 @@
 
 @app-icon-width:                        @appbar-width;
 @app-icon-height:                       @app-icon-width;
-@app-icon-background;                   @appbar-background;
+@app-icon-background:                   @appbar-background;
 @app-icon-color:                        fade(@global-contrast-color, 30%);
 @app-icon-line-height:                  @app-icon-height;
 @app-icon-hover-color:                  fade(@global-contrast-color, 70%);
@@ -46,13 +46,13 @@
 @con-list-item-background:              #edeff2;
 @con-list-item-padding:                 @global-margin-mini @global-margin-small;
 @con-list-item-border:                  @global-border-width solid @global-border;
-@con-list-item-unread-background:       @global-background; 
+@con-list-item-unread-background:       @global-background;
 
 @con-list-item-checkbox-width:          20px;
 
 @con-list-item-icons-width:             30px;
 
-@con-list-item-date-width:              90px;      
+@con-list-item-date-width:              90px;
 
 @con-list-item-subject-width:           ~"calc(100% - (@con-list-item-checkbox-width + @con-list-item-icons-width + @con-list-item-date-width + 20px))";
 @con-list-item-subject-font-size:       14px;
@@ -99,7 +99,7 @@ body {}
 // App - Sidebar
 
 .pm-sidebar {
-    min-width: @sidebar-min-width !important;    
+    min-width: @sidebar-min-width !important;
     height: @sidebar-height;
     background: @sidebar-background;
     padding: @sidebar-padding;
@@ -250,7 +250,7 @@ body {}
     height: 14px;
     border-radius: 9px;
     padding: 0px 6px;
-    display: inline-block; 
+    display: inline-block;
     border: 2px solid @global-border;
     float: right;
 }
@@ -278,7 +278,7 @@ body {}
     &:hover {
         max-width: 100%;
         margin-left: 7px;
-        
+
         & span { display: inline; }
         &:before { display: none; }
 
@@ -326,7 +326,7 @@ body {}
   border-radius: 0;
   font-size: 1em;
   width: 100%
-} 
+}
 
 /* graceful degradation for ie8 */
 .pm-custom-checkbox input[type='checkbox'],
@@ -385,8 +385,3 @@ body {}
   background: @global-primary-background;
   box-shadow: inset 0 0 0 4px @global-dark-background;
 }
-
-
-
-
-
