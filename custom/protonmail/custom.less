@@ -3,161 +3,221 @@
 
 
 //
-// Base
+// Layout
 //
 
-@bh-headline-bottom-border-width:                   @global-border-width;
-@bh-headline-bottom-border:                         @global-border;
-@bh-headline-left-border-width:                     3px;
-@bh-headline-left-border:                           @global-primary-background;
+@appbar-width:                          @global-height-large;
+@appbar-height:                         100vh;
+@appbar-background:                     darken(@global-dark-background, 5%);
+
+@app-width:                             ~"calc(100% - @appbar-width)";
+@app-height:                            100vh;
+@app-background:                        @global-background;
+@app-left-margin:                       @appbar-width;
+
+@sidebar-min-width:                     220px;
+@sidebar-height:                        100vh;
+@sidebar-background:                    @global-dark-background;
+@sidebar-padding:                       @global-margin;
+
+@topbar-height:                         @global-height-large;
+@topbar-background:                     @global-light-background;
+
+@toolbar-padding:                       @global-margin-mini @global-margin-small;
+@toolbar-border:                        1px solid @global-border;
+
+@con-list-height:                       ~"calc(100vh - (@topbar-height + (2 * @global-margin-mini) + @button-height))"
+@con-list-font-size:                    12px;
+@con-list-line-height:                  18px;
 
 //
-// Breakpoints
+// Components
 //
 
-@breakpoint-xxlarge:                                1365px;
-@breakpoint-xlarge-max:                             (@breakpoint-xxlarge - 1);
+@app-icon-width:                        @appbar-width;
+@app-icon-height:                       @app-icon-width;
+@app-icon-background;                   @appbar-background;
+@app-icon-color:                        fade(@global-contrast-color, 30%);
+@app-icon-line-height:                  @app-icon-height;
+@app-icon-hover-color:                  fade(@global-contrast-color, 70%);
+@app-icon-active-color:                 @global-contrast-color;
+@app-icon-active-background:            @global-dark-background;
 
+@con-list-item-background:              #edeff2;
+@con-list-item-padding:                 @global-margin-mini @global-margin-small;
+@con-list-item-border:                  @global-border-width solid @global-border;
+@con-list-item-unread-background:       @global-background; 
+
+@con-list-item-checkbox-width:          20px;
+
+@con-list-item-icons-width:             30px;
+
+@con-list-item-date-width:              90px;      
+
+@con-list-item-subject-width:           ~"calc(100% - (@con-list-item-checkbox-width + @con-list-item-icons-width + @con-list-item-date-width + 20px))";
+@con-list-item-subject-font-size:       14px;
+
+@con-list-item-sender-font-size:        14px;
+@con-list-item-sender-font-weight:      bold;
+@con-list-item-sender-margin-left:      25px;
+@con-list-item-sender-width:            ~"calc(100% - @con-list-item-sender-margin-left)";
 
 
 /* Custom components
  ========================================================================== */
 
- body {}
+body {}
 
- // Wrapper
+//
+// Layout
+//
 
- .pm-appbar {
-    width: 40px;
-    height: 100vh;
-    background: #41414c;
+// Appbar
+
+.pm-appbar {
+    width: @appbar-width;
+    height: @appbar-height;
+    background: @appbar-background;
     position: absolute;
     left: 0;
     box-shadow: inset -10px 0 10px 0px rgba(0,0,0,0.1);
- }
-
- .pm-app-icon {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    background: #41414c;
-    box-shadow: inset -10px 0 10px 0px rgba(0,0,0,0.1);
-    border-bottom: 1px solid rgba(0,0,0,0.15);
-    color: fade(@global-contrast-color, 30%);
-    text-align: center;
-    line-height: 40px;
-
-    &:hover {
-        color: fade(@global-contrast-color, 70%);
-        box-shadow: inset -10px 0 10px 0px rgba(0,0,0,0.01);
-    }
- }
-
- .pm-app-icon-active.pm-app-icon {
-    background: @global-dark-background;
-    box-shadow: inset 0px 1px 0px 0px rgba(255,255,255,0.05);
-    color: @global-contrast-color;
- }
-
- .pm-app {
-    width: ~"calc(100% - 40px)";
-    background: @global-background;
-    height: 100vh;
-    display: inline-block;
-    // margin-left: -4px;
-    position: absolute;
-    left: 40px;
- }
-
- .pm-sidebar {
-    min-width: 220px !important;    
-    height: 100vh;
-    display: inline-block;
-    background: #464652;
-    padding: 20px;
- }
-
- .pm-topbar {
-    height: 40px;
-    // width: ~"calc(100% - 160px)";
-    display: inline-block;
-    background: #777b8a;
-    // margin-left: -4px;
-    padding: 0;
- }
-
- .pm-toolbar {
-    padding: 10px 15px;
-    border-bottom: 1px solid @global-border;
 }
+
+// App
+
+.pm-app {
+    width: @app-width;
+    background: @app-background;
+    height: @app-height;
+    display: inline-block;
+    position: absolute;
+    left: @app-left-margin;
+}
+
+.pm-app > .uk-grid { margin-left: 0px !important; }
+
+// App - Sidebar
+
+.pm-sidebar {
+    min-width: @sidebar-min-width !important;    
+    height: @sidebar-height;
+    background: @sidebar-background;
+    padding: @sidebar-padding;
+    display: inline-block;
+}
+
+// App - Topbar
+
+.pm-topbar {
+    height: @topbar-height;
+    background: @topbar-background;
+    display: inline-block;
+    padding: 0;
+}
+
+// App - Content
+
+.pm-content { display: inline-block; }
+
+// App - Content - Toobar
+
+.pm-toolbar {
+    padding: @toolbar-padding;
+    border-bottom: @toolbar-border;
+}
+
+// App - Content - Conversation List
+
+.pm-con-list {
+    height: @con-list-height;
+    font-size: @con-list-font-size;
+    line-height: @con-list-line-height;
+    padding: 0;
+    overflow-y: scroll;
+}
+
+// App - Content - Conversation View
 
 .pm-con-view { padding: 0; }
 
- .pm-content {
-    // height: ~"calc(100% - 40px)";
-    // width: ~"calc(100% - 160px)";
+
+//
+// Components
+//
+
+// Appbar
+
+.pm-app-icon {
+    width: @app-icon-width;
+    height: @app-icon-height;
+    background: @app-icon-background;
+    color: @app-icon-color;
+    text-align: center;
+    line-height: @app-icon-line-height;
     display: inline-block;
- }
+    box-shadow: inset -10px 0 10px 0px rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(0,0,0,0.15);
 
- .pm-app > .uk-grid { margin-left: 0px !important; }
+    &:hover {
+        color: @app-icon-hover-color;
+        box-shadow: inset -10px 0 10px 0px rgba(0,0,0,0.01);
+    }
 
- .pm-con-list {
-    padding: 0;
-    font-size: 12px;
-    line-height: 18px;
-    height: ~"calc(100vh - 100px)";
-    overflow-y: scroll;
+}
+
+.pm-app-icon-active.pm-app-icon {
+    background: @app-icon-active-background;
+    color: @app-icon-actove-color;
+    box-shadow: inset 0px 1px 0px 0px rgba(255,255,255,0.05);
 }
 
 // Conversation List Item
 
 .pm-con-list-item {
-    background: #edeff2;
-    padding: 12px 15px;
-    border-bottom: 1px solid @global-border;
+    background: @con-list-item-background;
+    padding: @con-list-item-background;
+    border-bottom: @con-list-item-border;
 }
 
-.pm-con-list-item-unread { background: @global-background; }
+.pm-con-list-item:hover { box-shadow: inset 0 0 10px 10px rgba(0,0,0,0.03); }
 
-.pm-con-list-item:hover {
-    z-index: 999;
-    box-shadow: inset 0 0 10px 10px rgba(0,0,0,0.03);
-}
+.pm-con-list-item-unread { background: @con-list-item-unread-background; }
 
 .pm-con-list-item-checkbox {
-    width: 20px;
+    width: @con-list-item-checkbox-width;
     display: inline-block;
 }
 
 .pm-con-list-item-subject {
+    width: @con-list-item-subject-width;
+    font-size: @con-list-item-subject-font-size;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    width: ~"calc(100% - 160px)";
     display: inline-block;
-    font-size: 14px;
 }
 
 .pm-con-list-item-icons,
 .pm-con-list-item-date { display: inline-block; }
 
-.pm-con-list-item-icons { width: 30px; }
+.pm-con-list-item-icons { width: @con-list-item-icons-width; }
+
 .pm-con-list-item-date {
+    width: @con-list-item-date-width;
     text-align: right;
-    width: 90px;
 }
 
 .pm-con-list-item-bottom { position: relative; }
 
 .pm-con-list-item-sender {
-    font-size: 12px;
-    margin-left: 25px;
-    font-weight: bold;
+    width: @con-list-item-sender-width;
+    font-size: @con-list-item-sender-font-size;
+    margin-left: @con-list-item-sender-margin-left;
+    font-weight: @con-list-item-sender-font-weight;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
     display: inline-block;
-    width: ~"calc(100% - 25px)";
 }
 
 .pm-label-list {
