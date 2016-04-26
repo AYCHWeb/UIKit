@@ -141,7 +141,9 @@
             "components/sticky",
             "components/timepicker",
             "components/tooltip",
-            "components/upload"
+            "components/upload",
+        "::Layouts",
+            "layouts/webmail"
 
     ];
 
