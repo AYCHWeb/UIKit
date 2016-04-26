@@ -69,6 +69,9 @@
     }
 
     var tests = [
+        "::Layouts",
+
+            "layouts/webmail",
 
         "::Core",
 
@@ -141,9 +144,7 @@
             "components/sticky",
             "components/timepicker",
             "components/tooltip",
-            "components/upload",
-        "::Layouts",
-            "layouts/webmail"
+            "components/upload"
 
     ];
 
