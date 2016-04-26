@@ -26,7 +26,7 @@
 @toolbar-padding:                       @global-margin-mini @global-margin-small;
 @toolbar-border:                        1px solid @global-border;
 
-@con-list-height:                       ~"calc(100vh - (@topbar-height + (2 * @global-margin-mini) + @button-height))";
+@con-list-height:                       ~"calc(100vh - 100px)";
 @con-list-font-size:                    12px;
 @con-list-line-height:                  18px;
 
@@ -167,7 +167,7 @@ body {}
 
 .pm-app-icon-active.pm-app-icon {
     background: @app-icon-active-background;
-    color: @app-icon-actove-color;
+    color: @app-icon-active-color;
     box-shadow: inset 0px 1px 0px 0px rgba(255,255,255,0.05);
 }
 
@@ -226,6 +226,7 @@ body {}
     background: #edeff2;
     position: absolute;
     right: 0;
+    top: 0;
 
     &:before {
         content: '';
