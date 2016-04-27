@@ -235,6 +235,8 @@ body {}
     display: inline-block;
 }
 
+// Conversation View
+
 .pm-con-view-subject {
     font-size: 25px;
     padding: 15px 15px;
@@ -251,9 +253,19 @@ body {}
     background: @con-view-message-background;
     padding: @con-view-message-padding;
     border-radius: @con-view-message-border-radius;
-    display: inline-block;
-    width: 100%;
+    display: block;
+    position: relative;
 }
+
+.pm-con-view-messages-sender {
+    display: block;
+}
+
+.pm-con-view-messages-recipiens {
+    display: block;
+}
+
+// Label List
 
 .pm-label-list {
     display: inline-block;
