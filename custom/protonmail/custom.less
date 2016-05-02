@@ -259,11 +259,65 @@ body {}
 
 .pm-con-view-messages-sender {
     display: block;
+    max-width: ~"calc(100% - 150px;)";
 }
 
 .pm-con-view-messages-recipiens {
     display: block;
 }
+
+.pm-con-view-messages-info { position: relative; }
+
+// Label List Message view
+
+.pm-con-view .pm-label-list {
+    display: inline-block;
+    background: #edeff2;
+    position: absolute;
+    right: 100%;
+    top: 2px;
+    /*position: relative;*/
+
+    &:before {
+        content: '';
+        position: absolute;
+        width: 30px;
+        height: 14px;
+        left: -30px;
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,1+100;Neutral+Density */
+        background: -moz-linear-gradient(left, rgba(0,0,0,0) 0%, #edeff2 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(left, rgba(0,0,0,0) 0%,#edeff2 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to right, rgba(0,0,0,0) 0%,#edeff2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    }
+
+}
+
+.pm-con-view .pm-label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+    display: inline-block;
+    -webkit-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+}
+
+.pm-con-view .pm-label > span {
+    font-size: 8px;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 12px;
+    color: @global-contrast-color;
+    height: 12px;
+    border-radius: 9px;
+    padding: 0px 8px;
+    display: inline-block;
+    border: 2px solid @global-border;
+    float: right;
+}
+
+.pm-con-view .pm-label-collapsed.pm-label { max-width: 8px; }
+.pm-con-view .pm-label-collapsed.pm-label:hover { max-width: 150px; }
 
 // Label List
 
