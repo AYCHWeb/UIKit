@@ -10,23 +10,21 @@
 @subnav-margin-horizontal: 						10px;
 
 @subnav-color:                                  @global-color;
-@subnav-hover-color:                            @global-color;
-@subnav-disabled-color:                         @global-muted-color;
+@subnav-hover-color:                            @global-link-color;
+@subnav-disabled-color:                         @global-primary-color;
 @subnav-active-color:                           @global-primary-color;
 
 @subnav-line-border:                            @global-border;
 @subnav-line-border-width:                      @global-border-width;
 
-@subnav-pill-hover-background:                  @global-light-background;
-@subnav-pill-hover-color:                       @global-color;
+@subnav-pill-hover-background:                  darken(@global-background, 5%);
+@subnav-pill-hover-color:                       @global-primary-color;
 @subnav-pill-active-background:                 @global-primary-background;
 @subnav-pill-active-color:                      @global-contrast-color;
 
 @subnav-disabled-color:                         @global-muted-color;
 
-// New variables
-
-@subnav-text-transform: 						@global-text-transform;
+@subnav-pill-border-radius: 					@global-border-radius;
 
 
 // Component
@@ -36,26 +34,15 @@
 // Items
 //
 
-.hook-subnav-item() {
-    text-transform: @subnav-text-transform;
-    font-size: @subnav-font-size;
-}
+.hook-subnav-item() {}
 
 // Link
 .hook-subnav-link() {}
 
-.hook-subnav-link-hover() {
-	text-decoration: none;
-}
+.hook-subnav-link-hover() {}
 
 // Active
-.hook-subnav-active() {
-
-	color: @subnav-active-color;
-
-	&:hover { text-decoration: none; }
-
-}
+.hook-subnav-active() {}
 
 // Disabled
 .hook-subnav-disabled() {}
@@ -70,7 +57,7 @@
 // Modifier: `uk-subnav-pill'
 // ========================================================================
 
-.hook-subnav-pill() {}
+.hook-subnav-pill() { border-radius: @subnav-pill-border-radius; }
 
 // Hover
 .hook-subnav-pill-hover() {}

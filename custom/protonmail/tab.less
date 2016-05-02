@@ -7,26 +7,23 @@
 // Variables
 // ========================================================================
 
-@tab-border:                                    @global-border;
+@tab-border:                                    @global-light-background;
 @tab-border-width:                              @global-border-width;
 @tab-padding-horizontal:                        15px;
 @tab-margin-horizontal:                         0;
 @tab-margin-vertical:                           0;
-@tab-color:                                     @global-color;
+@tab-color:                                     @global-contrast-color;
 @tab-hover-border:                              rgba(0,0,0,0);
 @tab-hover-background:                          @global-light-background;
-@tab-hover-color:                               @global-color;
-@tab-active-border:                             @global-border;
+@tab-hover-color:                               @global-contrast-color;
+@tab-active-border:                             @global-light-background;
 @tab-active-background:                         @global-background;
 @tab-active-color:                              @global-color;
 @tab-disabled-color:                            @global-muted-color;
 
-// New variables
+@tab-background: 								lighten(@global-light-background, 5%);
 
-@tab-text-transform: 							@global-text-transform;
 
-@tab-active-border-top:							@global-primary-background;
-@tab-active-border-top-width: 					2px;
 
 
 // Component
@@ -36,27 +33,13 @@
 // Items
 //
 
-.hook-tab() {
-	text-transform: @tab-text-transform;
-}
+.hook-tab() { background: @tab-background; }
 
 // Hover
 .hook-tab-hover() {}
 
 // Active
-.hook-tab-active() {
-
-	&:before {
-	    position: absolute;
-	    top: 0;
-	    right: 0;
-	    left: 0;
-	    height: @tab-active-border-top-width;
-	    background: @global-primary-background;
-	    content: '';
-	}
-
-}
+.hook-tab-active() {}
 
 // Disabled
 .hook-tab-disabled() {}
@@ -65,40 +48,4 @@
 // Miscellaneous
 // ========================================================================
 
-.hook-tab-misc() {
-
-	// Modifier: 'tab-bottom'
-
-	.uk-tab-bottom > li.uk-active > a:before {
-	    top: auto;
-	    bottom: 0;
-	}
-
-	// Modifier: 'tab-left', 'tab-right'
-
-	@media (min-width: @breakpoint-medium) {
-
-		.uk-tab-left > li.uk-active > a:before,
-		.uk-tab-right > li.uk-active > a:before {
-		    bottom: 0;
-		    width: @tab-active-border-top-width;
-		    height: 100%;
-		}
-
-		.uk-tab-left > li.uk-active > a:before {
-		    right: auto;
-		    left: 0;
-		}
-
-		.uk-tab-right > li.uk-active > a:before {
-		    right: 0;
-		    left: auto;
-		}
-
-	}
-
-	// Modifier: 'tab-grid'
-
-	.uk-tab-grid { z-index: 1; }
-
-}
+.hook-tab-misc() {}

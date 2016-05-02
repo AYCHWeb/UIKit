@@ -10,7 +10,7 @@
 @pagination-line-height:                        @global-line-height;
 @pagination-background:                         rgba(0,0,0,0);
 @pagination-color:                              @global-color;
-@pagination-hover-background:                   @global-light-background;
+@pagination-hover-background:                   darken(@global-background, 5%);
 @pagination-hover-color:                        @global-color;
 @pagination-onclick-color:                      @global-color;
 
@@ -28,7 +28,7 @@
 // Items
 //
 
-.hook-pagination-item() {}
+.hook-pagination-item() { border-radius: @global-border-radius; }
 
 // Link
 .hook-pagination-link() {}

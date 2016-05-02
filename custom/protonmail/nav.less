@@ -30,34 +30,34 @@
 @nav-side-nested-color:                         fade(@global-contrast-color, 20%);
 @nav-side-nested-hover-color:                   @global-contrast-color;
 
-@nav-dropdown-color:                            @global-muted-color;
+@nav-dropdown-color:                            fade(@global-contrast-color, 60%);
 @nav-dropdown-hover-background:                 rgba(0,0,0,0);
-@nav-dropdown-hover-color:                      @global-color;
-@nav-dropdown-header-color:                     @global-color;
-@nav-dropdown-divider-border:                   @global-border;
-@nav-dropdown-nested-color:                     @global-muted-color;
+@nav-dropdown-hover-color:                      @global-contrast-color;
+@nav-dropdown-header-color:                     @global-contrast-color;
+@nav-dropdown-divider-border:                   fade(@global-contrast-color, 20%);
+@nav-dropdown-nested-color:                     @global-contrast-color;
 @nav-dropdown-nested-hover-color:               @global-color;
 
-@nav-navbar-color:                              @global-muted-color;
+@nav-navbar-color:                              fade(@global-contrast-color, 60%);
 @nav-navbar-hover-background:                   rgba(0,0,0,0);
-@nav-navbar-hover-color:                        @global-color;
-@nav-navbar-header-color:                       @global-color;
-@nav-navbar-divider-border:                     @global-border;
-@nav-navbar-nested-color:                       @global-muted-color;
-@nav-navbar-nested-hover-color:                 @global-color;
+@nav-navbar-hover-color:                        @global-contrast-color;
+@nav-navbar-header-color:                       @global-contrast-color;
+@nav-navbar-divider-border:                     fade(@global-contrast-color, 20%);
+@nav-navbar-nested-color:                       @global-contrast-color;
+@nav-navbar-nested-hover-color:                 @global-contrast-color;
 
 @nav-offcanvas-padding-vertical:                10px;
 @nav-offcanvas-padding-horizontal:              15px;
-@nav-offcanvas-color:                           @offcanvas-panel-link-color;
-@nav-offcanvas-hover-background:                rgba(0,0,0,0);
-@nav-offcanvas-hover-color:                     @offcanvas-panel-color;
-@nav-offcanvas-active-background:               rgba(0,0,0,0);
-@nav-offcanvas-active-color:                    @offcanvas-panel-color;
-@nav-offcanvas-header-color:                    @offcanvas-panel-color;
-@nav-offcanvas-divider-border:                  darken(@offcanvas-bar-background, 5%);
-@nav-offcanvas-divider-border-width: 			5px;
-@nav-offcanvas-nested-color:                    @offcanvas-panel-link-color;
-@nav-offcanvas-nested-hover-color:              @offcanvas-panel-color;
+@nav-offcanvas-color:                           fade(@global-contrast-color, 60%);
+@nav-offcanvas-hover-background:                rgba(0,0,0,0.1);
+@nav-offcanvas-hover-color:                     @global-contrast-color;
+@nav-offcanvas-active-background:               rgba(0,0,0,0.1);
+@nav-offcanvas-active-color:                    @global-contrast-color;
+@nav-offcanvas-header-color:                    @global-contrast-color;
+@nav-offcanvas-divider-border:                  fade(@offcanvas-bar-background, 5%);
+@nav-offcanvas-divider-border-width: 			@global-border-width;
+@nav-offcanvas-nested-color:                    fade(@global-contrast-color, 60%);
+@nav-offcanvas-nested-hover-color:              @global-contrast-color;
 
 //
 // NEW
@@ -204,7 +204,7 @@
 // Sub-object: `uk-nav-header`
 //
 
-.hook-nav-offcanvas-header() {}
+.hook-nav-offcanvas-header() { padding-left: 14px; }
 
 //
 // Sub-object: `uk-nav-divider`
